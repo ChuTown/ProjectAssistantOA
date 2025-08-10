@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
+import { AppRoutes } from './Routes'
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <div className="app">
+      <AppRoutes />
+    </div>
   )
 }
 
