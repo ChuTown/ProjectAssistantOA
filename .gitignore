@@ -26,3 +26,4 @@ dist-ssr
 # Environment config
 config.env
 .env
+backend/.env
