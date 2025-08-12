@@ -6,12 +6,12 @@ import SignUpPage from './pages/SignUpPage';
 import Header from './components/Header';
 
 // Layout component that includes Header and renders child routes
-const Layout = () => {
+const Layout = ({ isLoggedIn, onLogout }) => {
     return (
         <div className="app">
-            <Header />
+            <Header isLoggedIn={isLoggedIn} onLogout={onLogout} />
             <main>
-                <Outlet />
+                <Outlet context={{ isLoggedIn, onLogout }} />
             </main>
         </div>
     );
@@ -42,6 +42,32 @@ const router = createBrowserRouter([
     },
 ]);
 
-export const AppRoutes = () => {
-    return <RouterProvider router={router} />;
+export const AppRoutes = ({ isLoggedIn, onLogout, onLogin }) => {
+    // Update the router to use the current props
+    const currentRouter = createBrowserRouter([
+        {
+            path: "/",
+            element: <Layout isLoggedIn={isLoggedIn} onLogout={onLogout} />,
+            children: [
+                {
+                    index: true,
+                    element: <HomePage isLoggedIn={isLoggedIn} />,
+                },
+                {
+                    path: "signin",
+                    element: <SignedInPage onLogin={onLogin} />,
+                },
+                {
+                    path: "signup",
+                    element: <SignUpPage onLogin={onLogin} />,
+                },
+                {
+                    path: "*",
+                    element: <NotFoundPage />,
+                },
+            ],
+        },
+    ]);
+
+    return <RouterProvider router={currentRouter} />;
 };

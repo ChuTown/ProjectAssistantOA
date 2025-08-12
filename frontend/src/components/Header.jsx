@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom';
+import logoImage from '../images/image-audio-transcription-banner.webp';
 
-export default function Header() {
+export default function Header({ isLoggedIn, onLogout }) {
     return (
         <header>
             <div className="header-left">
                 <Link to="/" className="home-link">
+                    <img src={logoImage} alt="Audio Transcription Logo" className="logo" />
                     <h1>Project Assistant Position Online Assessment</h1>
                 </Link>
-            </div>
-            <div className="actions">
-                <Link to="/" className="btn btn--secondary">Home</Link>
-                <Link to="/signin" className="btn btn--secondary">Log in</Link>
-                <Link to="/signup" className="btn btn--primary">Sign up</Link>
             </div>
         </header>
     )

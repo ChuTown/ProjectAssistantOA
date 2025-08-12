@@ -1,12 +1,25 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
 import { AppRoutes } from './Routes'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+  }
+
+  const handleLogin = () => {
+    setIsLoggedIn(true)
+  }
+
   return (
     <div className="app">
-      <AppRoutes />
+      <AppRoutes 
+        isLoggedIn={isLoggedIn} 
+        onLogout={handleLogout}
+        onLogin={handleLogin}
+      />
     </div>
   )
 }
