@@ -47,6 +47,23 @@ def signup():
     except Exception:
         return {"error": "server error"}, 500
     
+def login():
+    data = request.get_json(force=True)
+    username = (data.get("username") or "").strip().lower()
+    password = data.get("password")
+
+    if not username or not password:
+        return {"error": "username and password required"}, 400
+
+    #look up user
+    user = db.users.find_one({"username": username})
+
+    #check password
+    if not user or not check_password_hash(user["password_hash"],password):
+        return {"error:" "invalid password"}, 401
+    
+    #logged in
+    return {"ok": True, "username":username}, 200
 
 if __name__ == "__main__":
     app.run(debug=True)
