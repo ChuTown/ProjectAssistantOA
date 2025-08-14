@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import NotFoundPage from './pages/NotFoundPage';
 import HomePage from './pages/HomePage';
-import SignedInPage from './pages/SignedInPage';
+import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import Header from './components/Header';
 
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "signin",
-                element: <SignedInPage />,
+                element: <SignInPage />,
             },
             {
                 path: "signup",
@@ -51,11 +51,11 @@ export const AppRoutes = ({ isLoggedIn, onLogout, onLogin }) => {
             children: [
                 {
                     index: true,
-                    element: <HomePage isLoggedIn={isLoggedIn} />,
+                    element: <HomePage isLoggedIn={isLoggedIn} onLogout={onLogout} />,
                 },
                 {
                     path: "signin",
-                    element: <SignedInPage onLogin={onLogin} />,
+                    element: <SignInPage onLogin={onLogin} />,
                 },
                 {
                     path: "signup",

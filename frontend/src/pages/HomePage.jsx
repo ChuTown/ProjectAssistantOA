@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function HomePage({ isLoggedIn = false }) {
+export default function HomePage({ isLoggedIn = false, onLogout }) {
     const [message, setMessage] = useState('')
     const [isRecording, setIsRecording] = useState(false)
 
@@ -53,7 +53,12 @@ export default function HomePage({ isLoggedIn = false }) {
     else {
         // keep simple for now
         return (
-            <h1>You are logged in, in the homepage</h1>
+            <div className="page-content">
+                <h1>You are logged in, in the homepage</h1>
+                <button onClick={onLogout} className="btn btn--secondary btn--large">
+                    Log Out
+                </button>
+            </div>
         )
     }
     
