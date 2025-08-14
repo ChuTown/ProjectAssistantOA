@@ -80,11 +80,6 @@ main,
     line-height: 1.6;
 }
 
-.actions {
-    display: flex;
-    gap: 1rem;
-}
-
 /* Button styles */
 .btn {
     padding: 0.5rem 1rem;
@@ -127,22 +122,6 @@ main,
 .btn--large {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
-}
-
-.btn--disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btn--active {
-    background: #dc2626;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
 }
 
 /* App layout styles */
@@ -211,112 +190,6 @@ main {
     flex-wrap: wrap;
 }
 
-/* Features section styles */
-.features-section {
-    margin-top: 4rem;
-}
-
-.features-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #1e40af;
-    margin-bottom: 2rem;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e5e7eb;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
-    color: #1e40af;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.feature-card p {
-    color: #6b7280;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Recording section styles */
-.recording-section {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.recording-section h1 {
-    font-size: 2.5rem;
-    color: #1e40af;
-    margin-bottom: 1rem;
-}
-
-.recording-section p {
-    font-size: 1.2rem;
-    color: #6b7280;
-    margin-bottom: 2rem;
-}
-
-.recording-controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-}
-
-.recording-status {
-    background: #fef3c7;
-    border: 1px solid #f59e0b;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-top: 1rem;
-}
-
-.recording-indicator {
-    color: #d97706;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-/* Backend message styles */
-.backend-message {
-    background: #f3f4f6;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
-
-.backend-message h2 {
-    color: #374151;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
-
-.backend-message p {
-    color: #6b7280;
-    margin: 0;
-}
-
 /* Auth form styles */
 .auth-form {
     max-width: 400px;
@@ -367,87 +240,8 @@ main {
     margin-top: 50px;
 }
 
-/* Homepage specific styles */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.feature-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e5e7eb;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.feature-card h3 {
-    color: #1e40af;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.feature-card p {
-    color: #1e3a8a;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.cta-section {
-    text-align: center;
-    margin: 4rem 0 2rem 0;
-    padding: 3rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    color: white;
-}
-
-.cta-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.cta-section p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin: 0;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .features {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .feature-card {
-        padding: 1.5rem;
-    }
-
-    .cta-section {
-        padding: 2rem 1.5rem;
-        margin: 2rem 0 1rem 0;
-    }
-
-    .cta-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .recording-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .auth-buttons {
         flex-direction: column;
         align-items: center;

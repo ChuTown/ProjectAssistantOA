@@ -47,68 +47,14 @@ export default function HomePage({ isLoggedIn = false }) {
                     </div>
                 </div>
                 
-                <div className="features-section">
-                    <h2>Features</h2>
-                    <div className="features-grid">
-                        <div className="feature-card">
-                            <h3>🎤 Voice Recording</h3>
-                            <p>High-quality audio capture with noise reduction</p>
-                        </div>
-                        <div className="feature-card">
-                            <h3>🤖 AI Transcription</h3>
-                            <p>Accurate speech-to-text conversion</p>
-                        </div>
-                        <div className="feature-card">
-                            <h3>📚 History</h3>
-                            <p>Access all your previous transcriptions</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         )
     }
-
-    // Logged in user view
-    return (
-        <div className="page-content">
-            <div className="recording-section">
-                <h1>Audio Recording & Transcription</h1>
-                <p>Click the buttons below to start or stop recording your audio.</p>
-                
-                <div className="recording-controls">
-                    <button 
-                        onClick={handleStartRecording}
-                        disabled={isRecording}
-                        className={`btn btn--primary btn--large ${isRecording ? 'btn--disabled' : 'btn--active'}`}
-                    >
-                        {isRecording ? '🔴 Recording...' : '🎤 Start Recording'}
-                    </button>
-                    
-                    <button 
-                        onClick={handleStopRecording}
-                        disabled={!isRecording}
-                        className={`btn btn--secondary btn--large ${!isRecording ? 'btn--disabled' : ''}`}
-                    >
-                        ⏹️ Stop Recording
-                    </button>
-                </div>
-                
-                {isRecording && (
-                    <div className="recording-status">
-                        <p className="recording-indicator">🔴 Recording in progress...</p>
-                        <p>Speak clearly into your microphone</p>
-                    </div>
-                )}
-            </div>
-            
-            <div className="backend-message">
-                <h2>Message from Backend:</h2>
-                {message ? (
-                    <p>{message}</p>
-                ) : (
-                    <p>Loading...</p>
-                )}
-            </div>
-        </div>
-    )
+    else {
+        // keep simple for now
+        return (
+            <h1>You are logged in, in the homepage</h1>
+        )
+    }
+    
 }
