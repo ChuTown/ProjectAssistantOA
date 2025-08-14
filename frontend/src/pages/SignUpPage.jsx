@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUpPage({ onLogin }) {
-
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,10 +30,10 @@ export default function SignUpPage({ onLogin }) {
   
         // successful
         if (res.ok) {
-          alert("Account created successfully!");
-          onLogin(); // log in after sign up
+          alert("Account created successfully! You will now be redirected to the sign in page");
+          navigate('/signin'); // redirect to signin page 
         } 
-        // unsuccessful
+
         else {
           alert(data.error || "Signup failed");
         }
