@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logoImage from '../images/image-audio-transcription-banner.webp';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header({ isLoggedIn, onLogout }) {
     return (
@@ -10,13 +11,14 @@ export default function Header({ isLoggedIn, onLogout }) {
                     <h1>Project Assistant Position Online Assessment</h1>
                 </Link>
             </div>
-            {isLoggedIn && (
-                <div className="header-right">
+            <div className="header-right">
+                <ThemeToggle />
+                {isLoggedIn && (
                     <button onClick={onLogout} className="btn btn--secondary">
                         Log Out
                     </button>
-                </div>
-            )}
+                )}
+            </div>
         </header>
     )
 }

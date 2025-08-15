@@ -2,14 +2,16 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .transcription-container h2 {
   text-align: center;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -91,28 +93,30 @@
 .transcript-section {
   margin-top: 2rem;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   border-radius: 8px;
   border-left: 4px solid #667eea;
+  transition: background-color 0.3s ease;
 }
 
 .transcript-section h3 {
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
 
 .transcript-text {
-  background: white;
+  background: var(--bg-primary);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   line-height: 1.6;
-  color: #2d3748;
+  color: var(--text-primary);
   font-size: 1.1rem;
   margin-bottom: 1rem;
   min-height: 100px;
   white-space: pre-wrap;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .clear-btn {

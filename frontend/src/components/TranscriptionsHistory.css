@@ -2,9 +2,11 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .history-header {
@@ -13,11 +15,11 @@
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--border-color);
 }
 
 .history-header h3 {
-  color: #333;
+  color: var(--text-primary);
   margin: 0;
   font-size: 1.5rem;
 }
@@ -41,7 +43,7 @@
 .no-transcriptions {
   text-align: center;
   padding: 3rem;
-  color: #6b7280;
+  color: var(--text-secondary);
   font-style: italic;
 }
 
@@ -56,9 +58,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
@@ -74,7 +76,7 @@
 }
 
 .transcription-text {
-  color: #2d3748;
+  color: var(--text-primary);
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 0.5rem;
@@ -88,12 +90,12 @@
 }
 
 .transcription-meta span {
-  background: white;
+  background: var(--bg-primary);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
-  color: #6b7280;
-  border: 1px solid #e2e8f0;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
 }
 
 .view-btn {
@@ -147,12 +149,13 @@
 }
 
 .modal-content {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   max-width: 90%;
   max-height: 90%;
   overflow-y: auto;
   box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease;
 }
 
 .modal-header {
@@ -160,12 +163,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .modal-header h3 {
   margin: 0;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .modal-actions {
@@ -179,15 +182,15 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--text-secondary);
   padding: 0.5rem;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .close-btn:hover {
-  background: #f3f4f6;
-  color: #374151;
+  background: var(--bg-hover);
+  color: var(--text-primary);
 }
 
 .modal-body {
@@ -195,15 +198,16 @@
 }
 
 .full-transcription-text {
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   padding: 1.5rem;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   line-height: 1.6;
-  color: #2d3748;
+  color: var(--text-primary);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   white-space: pre-wrap;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .transcription-details {
@@ -213,14 +217,15 @@
 }
 
 .detail-item {
-  background: #f8f9fa;
+  background: var(--bg-secondary);
   padding: 1rem;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .detail-item strong {
-  color: #374151;
+  color: var(--text-primary);
   display: block;
   margin-bottom: 0.25rem;
 }
