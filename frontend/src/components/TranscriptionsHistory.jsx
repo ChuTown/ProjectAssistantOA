@@ -185,12 +185,6 @@ const TranscriptionsHistory = ({ username, refreshKey }) => {
                   <strong>Duration:</strong> {formatDuration(selectedTranscription.duration)}
                 </div>
                 <div className="detail-item">
-                  <strong>Language:</strong> {selectedTranscription.language || 'Unknown'}
-                </div>
-                <div className="detail-item">
-                  <strong>Created:</strong> {formatDate(selectedTranscription.created_at)}
-                </div>
-                <div className="detail-item">
                   <strong>Words:</strong> {selectedTranscription.words?.length || 0}
                 </div>
               </div>
