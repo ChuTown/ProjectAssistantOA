@@ -1,34 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import TranscriptionComponent from '../components/TranscriptionComponent'
+import TranscriptionsHistory from '../components/TranscriptionsHistory'
 
-export default function HomePage({ isLoggedIn = false, onLogout }) {
-    const [message, setMessage] = useState('')
-    const [isRecording, setIsRecording] = useState(false)
+export default function HomePage({ isLoggedIn = false, onLogout, username }) {
+    const [refreshHistory, setRefreshHistory] = useState(0);
 
     useEffect(() => {
-        fetch("http://localhost:5000/hello")
+        fetch("http://localhost:5000/")
             .then(res => res.text())
             .then(data => {
-                setMessage(data)
                 console.log(data)
             })
             .catch(error => {
                 console.error('Error fetching from backend:', error)
-                setMessage('Failed to connect to backend')
             })
     }, [])
 
-    const handleStartRecording = () => {
-        setIsRecording(true)
-        // TODO: Implement actual recording logic
-        console.log('Recording started')
-    }
-
-    const handleStopRecording = () => {
-        setIsRecording(false)
-        // TODO: Implement actual recording stop logic
-        console.log('Recording stopped')
-    }
+    const handleTranscriptionComplete = () => {
+        setRefreshHistory(prev => prev + 1);
+    };
 
     if (!isLoggedIn) {
         return (
@@ -51,13 +42,23 @@ export default function HomePage({ isLoggedIn = false, onLogout }) {
         )
     }
     else {
-        // keep simple for now
         return (
             <div className="page-content">
-                <h1>You are logged in, in the homepage</h1>
-                <button onClick={onLogout} className="btn btn--secondary btn--large">
-                    Log Out
-                </button>
+                <div className="logged-in-header">
+                    <h1>Welcome back!</h1>
+                    <p>Ready to transcribe some audio? Click the button below to start recording.</p>
+                    <button onClick={onLogout} className="btn btn--secondary">
+                        Log Out
+                    </button>
+                </div>
+                
+                <TranscriptionComponent 
+                    isLoggedIn={isLoggedIn} 
+                    username={username}
+                    onTranscriptionComplete={handleTranscriptionComplete}
+                />
+
+                <TranscriptionsHistory username={username} refreshKey={refreshHistory} />
             </div>
         )
     }

@@ -26,7 +26,7 @@ export default function SignInPage({ onLogin }) {
             // successful login
             if (res.ok) {
                 alert("Login Successful! You will now be redirected to the homepage");
-                onLogin(); // call the login function to update state
+                onLogin({ username: username.trim().toLowerCase() }); // call the login function to update state
                 navigate('/'); // navigate to root path (homepage)
             } else {
                 alert(data.error || "Login failed");

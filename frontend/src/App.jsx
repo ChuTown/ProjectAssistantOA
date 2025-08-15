@@ -4,19 +4,23 @@ import { AppRoutes } from './Routes'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [username, setUsername] = useState('')
 
   const handleLogout = () => {
     setIsLoggedIn(false)
+    setUsername('')
   }
 
-  const handleLogin = () => {
+  const handleLogin = (user) => {
     setIsLoggedIn(true)
+    setUsername(user.username)
   }
 
   return (
     <div className="app">
       <AppRoutes 
         isLoggedIn={isLoggedIn} 
+        username={username}
         onLogout={handleLogout}
         onLogin={handleLogin}
       />

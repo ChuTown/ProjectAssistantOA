@@ -10,6 +10,13 @@ export default function Header({ isLoggedIn, onLogout }) {
                     <h1>Project Assistant Position Online Assessment</h1>
                 </Link>
             </div>
+            {isLoggedIn && (
+                <div className="header-right">
+                    <button onClick={onLogout} className="btn btn--secondary">
+                        Log Out
+                    </button>
+                </div>
+            )}
         </header>
     )
 }
